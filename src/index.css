@@ -11,3 +11,63 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 15px
+}
+
+/*
+=====================
+Global Classes
+=====================
+*/
+
+.flex-row {
+  display: flex
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+  
+.align-end {
+  align-items: flex-end;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
