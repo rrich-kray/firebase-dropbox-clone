@@ -19,8 +19,9 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   // if you're not using Firebase, you can simply change the login and signup functiokn below to make requests to your server instead
-  const signup = (email, password) => {
-    return auth.createUserWithEmailAndPassword(email, password);
+  const signup = async (email, password) => {
+    const userData = await auth.createUserWithEmailAndPassword(email, password);
+    setCurrentUser(userData.user._delegate);
   };
 
   const login = (email, password) => {
@@ -31,8 +32,15 @@ export const AuthProvider = ({ children }) => {
     return auth.signOut();
   };
 
-  const ResetPassword = (email) => {
-    return auth.ResetPassword(email);
+  const resetPassword = (email) => {
+    return auth.sendPasswordResetEmail(email);
+  };
+
+  const updateEmail = (email) => {
+    return currentUser.updateEmail(email);
+  };
+  const updatePassword = (password) => {
+    return currentUser.updatePassword(password);
   };
 
   useEffect(() => {
@@ -50,7 +58,9 @@ export const AuthProvider = ({ children }) => {
     login,
     signup,
     logout,
-    ResetPassword,
+    resetPassword,
+    updateEmail,
+    updatePassword,
   };
   // returning value of currentUser in AuthContext.Provider so that it can be used anywhere in the application
   return (

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { Link } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
@@ -9,6 +9,10 @@ const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
+  const { currentUser } = useAuth();
+  const { logout } = useAuth();
+  const { navigate } = useNavigate();
+  console.log(currentUser); // returns null vs. undefined in PrivateRoute component. currentUser does not exit in PrivateComponent, but does elsewhere
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +21,7 @@ const Login = () => {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
+      setLoading(false);
       window.location.replace("/");
     } catch (e) {
       setError("Incorrect credentials provided");
@@ -27,16 +32,16 @@ const Login = () => {
 
   return (
     <>
-      <form className="signup" onSubmit={handleFormSubmit}>
+      <form className="login form" onSubmit={handleFormSubmit}>
         <h2 style={{ textAlign: "center" }}>Login</h2>
         {error && <div className="error-modal">{error}</div>}
         <div className="email-container form-container">
           <label htmlFor="email">Email</label>
-          <input name="email" id="email" ref={emailRef} />
+          <input name="email" id="email" ref={emailRef} required />
         </div>
         <div className="password-container form-container">
           <label htmlFor="password">Password</label>
-          <input name="password" id="password" ref={passwordRef} />
+          <input name="password" id="password" ref={passwordRef} required />
         </div>
         <div className="need-account">
           Need and account? <Link to="/signup">Signup</Link>
@@ -44,7 +49,8 @@ const Login = () => {
         <div className="forgot-password">
           Forgot Password? <Link to="/forgot-password">Forgot Password</Link>
         </div>
-        <button className="submit-btn">Submit</button>
+        <div onClick={logout}>Debugging Purposes</div>
+        <button className="submit-btn form-btn">Submit</button>
       </form>
     </>
   );

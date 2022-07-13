@@ -1,4 +1,4 @@
-.signup {
+.form {
     width: 400px;
     animation: fade-in 0.25s linear;
 }
@@ -22,7 +22,7 @@
     width: 100%
 }
 
-.signup button {
+.form-btn {
     width: 100%;
     background: rgb(203, 210, 227);
     border: none;
