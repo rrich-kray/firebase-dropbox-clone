@@ -1,0 +1,40 @@
+.dash {
+    height: 100vh;
+    width: 100vh;
+    position: relative;
+}
+
+.dash-content {
+    position: relative;
+    top: 50px;
+    width: 100vw;
+    height: calc(100vh - 100px);
+}
+
+.dash-btn {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    border: 0.5px solid rgb(169, 230, 133);
+    border-radius: 5px;
+    transition: 0.25s
+}
+
+.dash-btn:hover {
+    background: rgb(169, 230, 133);
+}
+
+.dash-btn img {
+    max-height: 95%;
+}
+
+.add-folder {
+    top: 2.5%;
+    right: 2.5%;
+}
+
+.add-file {
+    top: 2.5%;
+    right: 10%;
+}

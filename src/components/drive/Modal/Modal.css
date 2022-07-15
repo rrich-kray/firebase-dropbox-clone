@@ -1,0 +1,49 @@
+.dash-modal {
+    position: absolute;
+    height: 125px;
+    width: 400px;
+    top: 10%;
+    left: 0;
+    margin-left: auto;
+    right: 0;
+    margin-right: auto;
+    bottom: 0;
+    margin-bottom: auto;
+    z-index: 999;
+    border-radius: 5px;
+    animation: fade-in-bottom 0.25s linear;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dash-modal input {
+    width: 90%;
+    height: 50px;
+    border: none;
+    /* margin-left: 2.5px; */
+    border: .5px solid rgba(100, 100, 100, 0.5);
+    padding: 5px;
+    /* border-radius: 10px; */
+    margin-top: 10px;
+}
+
+.modal-btn-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5px;
+    padding: 10px
+}
+
+.dash-modal button {
+    margin-right: 2.5px;
+    margin-left: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(79, 82, 186);
+    color: white;
+    transition: 0.25s linear;
+}
+
+.dash-modal button:hover {
+    color: gold
+}
